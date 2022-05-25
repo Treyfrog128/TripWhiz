@@ -7,8 +7,8 @@ eventRouter.post('/newevent',
   (req, res) => res.status(200).json(res.locals.newEvent)
 );
 
-eventRouter.get('/verifyevent',
-  eventController.verifyEvent,
+eventRouter.get('/getevent',
+  eventController.getEvent,
   (req, res) => res.status(200).json(res.locals.foundEvent)
 );
 

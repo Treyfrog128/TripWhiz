@@ -6,7 +6,7 @@ const logger = require('morgan');
 const Data = require('./models/models');
 const URI = require('./secret/uri');
 
-const eventRouter = require("./routers/eventRouter.js");
+const eventRouter = require("./routers/eventRouter");
 
 const PORT = process.env.PORT || 3001;
 
