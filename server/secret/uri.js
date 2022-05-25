@@ -1,0 +1,1 @@
+export const dbRoute = 'ENTER MONGO URI HERE';
