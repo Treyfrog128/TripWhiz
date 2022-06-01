@@ -1,6 +1,7 @@
 import React from "react";
 import './App.css';
 import Main from './app/Main'
+import MapContainer from './app/map/MapContainer'
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -32,6 +33,7 @@ function App() {
   return (
     <div className="App">
       <Main />
+      <MapContainer />
       <p>{!data ? "Loading..." : data}</p>
     </div>
   );
