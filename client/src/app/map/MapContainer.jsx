@@ -1,25 +1,17 @@
 import React, { useEffect } from 'react';
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import Map from './Map'
-import Marker from './Marker'
-
-const render = (status) => {
-  if (status === Status.LOADING) return <h3>{status} ..</h3>;
-  if (status === Status.FAILURE) return <h3>{status} ...</h3>;
-  return null;
-};
+import { useLoadScript } from '@react-google-maps/api';
+import Map from './Map';
 
 function MapContainer() {
   const center = { lat: -34.397, lng: 150.644 };
-  const zoom = 4;
+  const zoom = 8;
 
-  return (
-    <Wrapper apiKey="AIzaSyDlotiA6nqcCyudjF4B3E-7tB-2GTxfkH0" render={render}>
-      <Map center={center} zoom={zoom}>
-        <Marker position={{ lat: -34.397, lng: 150.644 }} />
-      </Map>
-    </Wrapper>
-  );
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_MAPS_JS_KEY,
+  });
+
+  if (!isLoaded) return <div>Loading...</div>
+  return <Map center={center} zoom={zoom} />
 }
 
 export default MapContainer;
